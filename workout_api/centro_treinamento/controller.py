@@ -36,7 +36,7 @@ async def post(
 )
 async def query(db_session: DatabaseDependency) -> list[CentroTreinamentoOut]:
     centros_treinamento_out: list[CentroTreinamentoOut] = (
-        await db_session.execute(select(CentroTreinamentoModel))
+        await db_session.execute(select(CentroTreinamentoModel),)
     ).scalars().all()
     
     return centros_treinamento_out
